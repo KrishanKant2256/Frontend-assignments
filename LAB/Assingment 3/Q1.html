@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI Calculator</title>
+
+    </head>
+    <body>
+        <h1>BMI Calculator</h1>
+        <form>
+            <label for="height">Height (in cms): </label>
+            <input type="number" id="height" name="height">
+            <br><br>
+
+            <label for="weight">Weight (in kgs): </label>
+            <input type="number" id="weight" name="weight">
+            <br><br>
+
+            <button type="submit">Calculate BMI</button>
+            
+            <p id="result"></p>
+            
+        </form>
+
+        <script>
+            document.querySelector("form").addEventListener("submit", function(event){
+                event.preventDefault(); 
+
+                let height= Number(document.getElementById("height").value);
+            let weight= Number(document.getElementById("weight").value);
+
+            height= height/100;
+            let bmi= weight/(height*height);
+
+            if(bmi<18.5){
+                document.getElementById("result").innerHTML="Underweight";
+            }
+            else if(bmi<25){
+                document.getElementById("result").innerHTML="Normal";
+            }
+            else{
+                document.getElementById("result").innerHTMl="Overweight";
+            }
+            });
+        </script>
+    </body>
+</html>
